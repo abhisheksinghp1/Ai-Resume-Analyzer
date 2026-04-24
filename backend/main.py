@@ -18,7 +18,7 @@ from datetime import datetime
 load_dotenv()
 
 # Database setup
-DATABASE_URL = "sqlite:///./resumes.db"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./resumes.db")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
